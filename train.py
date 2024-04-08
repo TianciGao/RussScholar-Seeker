@@ -1,66 +1,85 @@
 import os
 import random
-from transformers import BertTokenizer, BertForMaskedLM
+import pandas as pd
+from transformers import BertTokenizer, BertForSequenceClassification, AdamW
+from torch.utils.data import DataLoader, TensorDataset
 import torch
+from sklearn.model_selection import train_test_split
 
 # 设置随机种子以保证实验的可复现性
 random.seed(42)
 torch.manual_seed(42)
 torch.cuda.manual_seed_all(42)
 
-# 加载BERT tokenizer和模型
+# 确定设备
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+# 加载BERT tokenizer
 tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
-model = BertForMaskedLM.from_pretrained('bert-base-uncased')
 
-# 设置训练数据路径
+# 设置数据路径
 data_dir = 'data'
+file_name = 'russian_names.csv'  # CSV文件名
 
-# 读取训练数据
-with open(os.path.join(data_dir, 'russian_names.txt'), 'r', encoding='utf-8') as f:
-    names = f.readlines()
+# 使用pandas读取CSV文件，尝试不同的编码方式处理编码问题
+encodings = ['utf-8', 'latin1']
+for encoding in encodings:
+    try:
+        file_path = os.path.join(data_dir, file_name)
+        data = pd.read_csv(file_path, encoding=encoding)
+        break
+    except UnicodeDecodeError:
+        print(f"Error: Unable to decode using {encoding} encoding. Trying another encoding...")
 
-# 打乱数据
-random.shuffle(names)
+# 如果所有编码方式都失败了，则输出错误信息并退出程序
+else:
+    print("Error: Unable to decode file using any encoding.")
+    exit()
 
-# 设置训练参数
-num_epochs = 3
-batch_size = 32
-learning_rate = 5e-5
+names = data['name'].tolist()
+labels = data['label'].tolist()
 
-# 将姓名列表转换为输入格式
-input_texts = ["[CLS] " + name.strip() + " [SEP]" for name in names]
+# 数据预处理，分割为训练集和测试集
+train_texts, val_texts, train_labels, val_labels = train_test_split(names, labels, test_size=.1)
 
-# 将输入文本转换为token IDs
-input_ids = [tokenizer.encode(text, add_special_tokens=False) for text in input_texts]
+# 将文本和标签编码
+train_encodings = tokenizer(train_texts, truncation=True, padding=True, max_length=128)
+val_encodings = tokenizer(val_texts, truncation=True, padding=True, max_length=128)
 
-# 计算输入文本的最大长度
-max_len = max(len(ids) for ids in input_ids)
+# 转换为torch张量
+train_dataset = TensorDataset(torch.tensor(train_encodings['input_ids']), torch.tensor(train_labels))
+val_dataset = TensorDataset(torch.tensor(val_encodings['input_ids']), torch.tensor(val_labels))
 
-# 将所有输入文本填充到相同长度
-input_ids = [ids + [tokenizer.pad_token_id] * (max_len - len(ids)) for ids in input_ids]
+# 初始化模型，对于二分类任务
+model = BertForSequenceClassification.from_pretrained('bert-base-uncased', num_labels=2).to(device)
 
-# 转换为PyTorch张量
-input_ids = torch.tensor(input_ids)
+# 数据加载器
+train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True)
+val_loader = DataLoader(val_dataset, batch_size=32, shuffle=False)
 
-# 定义模型优化器
-optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
+# 定义优化器
+optimizer = AdamW(model.parameters(), lr=5e-5)
 
 # 训练模型
+num_epochs = 3
 for epoch in range(num_epochs):
-    epoch_loss = 0.0
-    for i in range(0, len(input_ids), batch_size):
-        optimizer.zero_grad()
-        batch_input_ids = input_ids[i:i+batch_size].to(model.device)
-        labels = batch_input_ids.clone()
-        labels[labels != tokenizer.mask_token_id] = -100  # 忽略非mask位置的预测
-        outputs = model(input_ids=batch_input_ids, labels=labels)
+    model.train()
+    total_loss = 0
+    for batch in train_loader:
+        # 将数据移到相同的设备上
+        batch = [b.to(device) for b in batch]
+        inputs, labels = batch
+        model.zero_grad()
+        outputs = model(inputs, labels=labels)
         loss = outputs.loss
         loss.backward()
         optimizer.step()
-        epoch_loss += loss.item()
-    print(f"Epoch {epoch+1}, Loss: {epoch_loss:.4f}")
+        total_loss += loss.item()
+    print(f"Epoch {epoch+1}, Loss: {total_loss / len(train_loader)}")
 
 # 保存模型
 output_dir = 'bert_russian_names_model'
 model.save_pretrained(output_dir)
 tokenizer.save_pretrained(output_dir)
+
+
