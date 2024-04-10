@@ -22,10 +22,12 @@ Before using this tool, you need to install some necessary Python libraries, inc
 ```bash
 
 pip install transformers torch requests beautifulsoup4
-
+```
 After that, you can run prediction.py to execute the Russian expert identification. The command might look like this:
-python prediction.py
 
+```bash
+python prediction.py
+```
 ## Case Study: Identifying Russian Authors in AAAI 2021
 
 One of the notable applications of this project was the analysis of academic papers from the AAAI 2021 conference, listed on DBLP. The goal was to identify papers with Russian authors, showcasing the model's ability to provide insights into geographical distributions of academic contributions.
