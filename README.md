@@ -1,6 +1,6 @@
 **RussScholar-Seeker：A Python package for predicting whether a name is Russian**
 
-<img width="410" alt="微信图片_20240409101854" src="https://github.com/TianciGao/RussScholar-Seeker/assets/153629778/ba73d175-091d-4439-925c-82cd9a97f7b9">
+<p align="center"><img width="410" alt="微信图片_20240409101854" src="https://github.com/TianciGao/RussScholar-Seeker/assets/153629778/ba73d175-091d-4439-925c-82cd9a97f7b9">
 
 This project contains a series of programs designed to automatically identify and analyze Russian authors in academic papers. Utilizing the latest natural language processing technologies, it predicts the geographical attribute of names using a pre-trained BERT model to determine whether a given name is Russian.
 
@@ -33,11 +33,11 @@ python prediction.py
 One of the notable applications of this project was the analysis of academic papers from the AAAI 2021 conference, listed on DBLP. The goal was to identify papers with Russian authors, showcasing the model's ability to provide insights into geographical distributions of academic contributions.
 
 ### Results
-<img width="615" alt="1712759742827" src="https://github.com/TianciGao/RussScholar-Seeker/assets/153629778/2cd01309-38cc-4fab-a9bc-8316c023e69f">
+<p align="center"><img width="615" alt="1712759742827" src="https://github.com/TianciGao/RussScholar-Seeker/assets/153629778/2cd01309-38cc-4fab-a9bc-8316c023e69f">
 
 The model successfully identified several papers with Russian authors, underlining the global collaboration in the field of Artificial Intelligence. Here are a few highlights from the analysis:
 
-<img width="828" alt="1712759861119" src="https://github.com/TianciGao/RussScholar-Seeker/assets/153629778/fed0c4ee-b3f0-4452-b92b-e3fac6098ac8">
+<p align="center"><img width="828" alt="1712759861119" src="https://github.com/TianciGao/RussScholar-Seeker/assets/153629778/fed0c4ee-b3f0-4452-b92b-e3fac6098ac8">
 
 
 These results not only demonstrate the practical utility of the Russian Expert Identifier in analyzing academic contributions but also highlight the diverse international collaboration within the AI research community.
