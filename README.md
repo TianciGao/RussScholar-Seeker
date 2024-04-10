@@ -37,21 +37,8 @@ One of the notable applications of this project was the analysis of academic pap
 
 The model successfully identified several papers with Russian authors, underlining the global collaboration in the field of Artificial Intelligence. Here are a few highlights from the analysis:
 
-- **SMIL: Multimodal Learning with Severely Missing Modality**  
-  Authors: Mengmeng Ma, Jian Ren, Long Zhao, Sergey Tulyakov, Cathy Wu, Xi Peng  
-  Russian Author: Sergey Tulyakov
+<img width="828" alt="1712759861119" src="https://github.com/TianciGao/RussScholar-Seeker/assets/153629778/fed0c4ee-b3f0-4452-b92b-e3fac6098ac8">
 
-- **CHEF: Cross-modal Hierarchical Embeddings for Food Domain Retrieval**  
-  Authors: Hai Xuan Pham, Ricardo Guerrero, Vladimir Pavlovic, Jiatong Li  
-  Russian Author: Vladimir Pavlovic
-
-- **Efficient Certification of Spatial Robustness**  
-  Authors: Anian Ruoss, Maximilian Baader, Mislav Balunovic, Martin T. Vechev  
-  Russian Authors: Mislav Balunovic, Martin T. Vechev
-
-- **Adversarial Turing Patterns from Cellular Automata**  
-  Authors: Nurislam Tursynbek, Ilya Vilkoviskiy, Maria Sindeeva, Ivan V. Oseledets  
-  Russian Authors: Ilya Vilkoviskiy, Maria Sindeeva
 
 These results not only demonstrate the practical utility of the Russian Expert Identifier in analyzing academic contributions but also highlight the diverse international collaboration within the AI research community.
 
