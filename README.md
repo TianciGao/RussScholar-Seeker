@@ -1,6 +1,7 @@
 **RussScholar-Seeker：A Python package for predicting whether a name is Russian**
 
 <img width="410" alt="微信图片_20240409101854" src="https://github.com/TianciGao/RussScholar-Seeker/assets/153629778/ba73d175-091d-4439-925c-82cd9a97f7b9">
+
 This project contains a series of programs designed to automatically identify and analyze Russian authors in academic papers. Utilizing the latest natural language processing technologies, it predicts the geographical attribute of names using a pre-trained BERT model to determine whether a given name is Russian.
 
 ## Principle
@@ -19,6 +20,7 @@ The core of the project is based on the `BertForSequenceClassification` model fr
 Before using this tool, you need to install some necessary Python libraries, including `transformers`, `torch`, `requests`, and `beautifulsoup4`. The installation command is as follows:
 
 ```bash
+
 pip install transformers torch requests beautifulsoup4
 
 After that, you can run prediction.py to execute the Russian expert identification. The command might look like this:
