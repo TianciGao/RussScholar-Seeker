@@ -9,6 +9,7 @@ This project contains a series of programs designed to automatically identify an
 ## Principle
 
 The core of the project is based on the `BertForSequenceClassification` model from the `transformers` library, trained with a specific dataset to distinguish Russian from non-Russian names. We first scrape metadata of academic papers, including titles and author names, from databases like DBLP. Then, we use this trained model to predict the names fetched, automatically identifying Russian authors.
+https://huggingface.co/Gao-Tianci/RussScholar-Seeker
 
 ## Production Process
 
