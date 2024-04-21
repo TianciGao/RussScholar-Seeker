@@ -36,11 +36,11 @@ python prediction.py
 One of the notable applications of this project was the analysis of academic papers from the AAAI 2021 conference, listed on DBLP(HTML,XML). The goal was to identify papers with Russian authors, showcasing the model's ability to provide insights into geographical distributions of academic contributions.
 
 ### Results
-<p align="center"><img width="701" alt="1713720067602" src="https://github.com/TianciGao/RussScholar-Seeker/assets/153629778/2f5d5cf7-2b45-4b96-b0cf-edb44da7e123">
+<p align="center">![image](https://github.com/TianciGao/RussScholar-Seeker/assets/153629778/e7be4834-f33c-4ae2-b2d3-3f23acc6e44a)
 
 The model successfully identified several papers with Russian authors, underlining the global collaboration in the field of Artificial Intelligence. Here are a few highlights from the analysis:
 
-<p align="center"><img width="828" alt="1712759861119" src="https://github.com/TianciGao/RussScholar-Seeker/assets/153629778/fed0c4ee-b3f0-4452-b92b-e3fac6098ac8">
+<p align="center"><img width="701" alt="1713720067602" src="https://github.com/TianciGao/RussScholar-Seeker/assets/153629778/2f5d5cf7-2b45-4b96-b0cf-edb44da7e123">
 
 
 These results not only demonstrate the practical utility of the Russian Expert Identifier in analyzing academic contributions but also highlight the diverse international collaboration within the AI research community.
