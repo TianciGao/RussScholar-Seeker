@@ -36,7 +36,7 @@ python prediction.py
 One of the notable applications of this project was the analysis of academic papers from the AAAI 2021 conference, listed on DBLP(HTML,XML). The goal was to identify papers with Russian authors, showcasing the model's ability to provide insights into geographical distributions of academic contributions.
 
 ### Results
-<p align="center">![image](https://github.com/TianciGao/RussScholar-Seeker/assets/153629778/e7be4834-f33c-4ae2-b2d3-3f23acc6e44a)
+<p align="center"><img width="615" alt="321279174-2cd01309-38cc-4fab-a9bc-8316c023e69f" src="https://github.com/TianciGao/RussScholar-Seeker/assets/153629778/76fb97db-7589-4fae-9024-94caf3d1dcea">
 
 The model successfully identified several papers with Russian authors, underlining the global collaboration in the field of Artificial Intelligence. Here are a few highlights from the analysis:
 
