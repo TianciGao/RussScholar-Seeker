@@ -5,7 +5,7 @@ I am aware that this topic may be viewed from a political perspective. That is a
 <p align="center"><img width="410" alt="微信图片_20240409101854" src="https://github.com/TianciGao/RussScholar-Seeker/assets/153629778/ba73d175-091d-4439-925c-82cd9a97f7b9">
 
 This project contains a series of programs designed to automatically identify and analyze Russian authors in academic papers. Utilizing the latest natural language processing technologies, it predicts the geographical attribute of names using a pre-trained BERT model to determine whether a given name is Russian.
-Web version of Russian scholar search tool: https://russscholar.online/
+Web version of Russian scholar search tool: https://russscholar.online
 
 ## Principle
 
