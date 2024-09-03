@@ -1,4 +1,4 @@
-**RussScholar-Seeker：A Python package for predicting whether a name is Russian**
+**RussScholar-Seeker：A Python package for predicting whether a name is Russian (Based on computer science database DBLP)**
 
 I am aware that this topic may be viewed from a political perspective. That is absolutely **AGAINST** my motivation.
 
