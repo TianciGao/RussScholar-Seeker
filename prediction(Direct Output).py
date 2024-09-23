@@ -80,6 +80,7 @@ url = "https://dblp.org/search/publ/api?q=stream%3Astreams%2Fconf%2Faaai%3A&h=10
 response = requests.get(url)
 content_type = detect_content_type(response.headers)
 
+
 start_time = time.time()  # Start time of the program
 if content_type == 'html':
     parse_html(response.text)
