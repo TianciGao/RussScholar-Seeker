@@ -6,7 +6,7 @@ I am aware that this topic may be viewed from a political perspective. That is a
 
 This project contains a series of programs designed to automatically identify and analyze Russian authors in academic papers. Utilizing the latest natural language processing technologies, it predicts the geographical attribute of names using a pre-trained BERT model to determine whether a given name is Russian.
 
-This script enables users to search the latest 1000 papers from selected conferences (or journals) and utilizes a large model to identify authors possibly of Russian background. It outputs the paper title, author names, and DOI. The script has already been deployed online, web version: https://stingray-app-cyyla.ondigitalocean.app/ （Due to extremely limited and costly computational resources, the processing time will take more than one minute. Thank you for your patience）.
+This script enables users to search the latest 1000 papers from selected conferences (or journals) and utilizes a large model to identify authors possibly of Russian background. It outputs the paper title, author names, and DOI. The script has already been deployed online, web version: https://russscholar.online/ Due to extremely limited and costly computational resources, the processing time will take more than one minute. Thank you for your patience）.
 
 ## Principle
 
